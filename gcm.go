@@ -42,6 +42,8 @@ const (
 	xmppAddress = xmppHost + ":" + xmppPort
 	// For ccs the min for exponential backoff has to be 1 sec
 	ccsMinBackoff = 1 * time.Second
+	//Used for constructing the sender id for authentication
+	gcmHost = "gcm.googleapis.com"
 )
 
 var (
@@ -602,5 +604,5 @@ func authHeader(apiKey string) string {
 
 // xmppUser generates an xmpp username from a sender ID.
 func xmppUser(senderId string) string {
-	return senderId + "@" + xmppHost
+	return senderId + "@" + gcmHost
 }
